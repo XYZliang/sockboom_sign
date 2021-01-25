@@ -14,7 +14,7 @@ header={
     }
 email='753476038%40qq.com'
 passwd='l753476038'
-push=0      # 1 为钉钉推送 其他为不推送
+push= 1      # 1 为钉钉推送 其他为不推送
 global content  #设置一个全局参数存储打印信息，最后好推送
 contents=''
 def output(content): 
