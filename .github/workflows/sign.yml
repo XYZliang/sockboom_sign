@@ -27,3 +27,8 @@ jobs:
         
       - name: '运行签到脚本'  
         run: python3 sockboom.py
+        env:
+            webhook : ${{ secrets.webhook  }}
+            email: ${{ secrets.email }}
+            passwd: ${{ secrets.passwd }}
+            notice:  ${{ secrets.notice }} 
