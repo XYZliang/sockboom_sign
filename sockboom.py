@@ -1,19 +1,20 @@
 import requests
 import json
+import os
 from bs4 import BeautifulSoup
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 # 禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
-webhook = 'https://oapi.dingtalk.com/robot/send?access_token=4978dbdd11859e0e4a036d517e8219e1ec4d06a3ad9aa968d10abe947d409e61' # 钉钉机器人的 webhook
+webhook = os.environ["webhook"] # 钉钉机器人的 webhook
 header={
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0',
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     }
-email='753476038%40qq.com'
-passwd='l753476038'
+email= os.environ["email"]
+passwd= os.environ["passwd"]
 push= 1      # 1 为钉钉推送 其他为不推送
 global content  #设置一个全局参数存储打印信息，最后好推送
 contents=''
