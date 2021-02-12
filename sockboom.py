@@ -13,8 +13,7 @@ header={
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     }
-email = input("邮箱：")
-#email= os.environ["email"]
+email= os.environ["email"]
 passwd= os.environ["passwd"]
 push= 1      # 1 为钉钉推送 其他为不推送
 global content  #设置一个全局参数存储打印信息，最后好推送
