@@ -20,7 +20,7 @@ jobs:
       - name: 'Set up Python'
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.9.1
          
       - name: '安装 requirements'
         run: pip install -r ./requirements.txt 
@@ -31,4 +31,4 @@ jobs:
             webhook : ${{ secrets.webhook  }}
             email: ${{ secrets.email }}
             passwd: ${{ secrets.passwd }}
-            notice:  ${{ secrets.notice }} 
+            serverkey:  ${{ secrets.serverkey }} 
