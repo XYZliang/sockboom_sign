@@ -15,7 +15,14 @@ header = {
 }
 email = os.environ["email"]
 passwd = os.environ["passwd"]
-
+try:
+    dingwebhook = os.environ["webhook"]  # 钉钉机器人的 webhook
+except KeyError:
+    print("没有在Repository secrets配置钉钉机器人的‘webhook’,跳过发送钉钉推送")
+try:
+    serverkey = os.environ["serverkey"]  # server酱的 webhook
+except KeyError:
+    print("没有在Repository secrets配置server酱的‘serverkey’,跳过发送server酱推送")
 # 设置一个全局参数存储打印信息，最后好推送
 contents = ''
 
@@ -128,22 +135,13 @@ def main():
     cookie = sign(header)
     headers = user_centre(cookie)
     checkin(headers)
-    try:
-        dingwebhook = os.environ["webhook"]  # 钉钉机器人的 webhook
-        if(len(dingwebhook)) > 1:
-            dingtalk(dingwebhook)
-        else:
-            raise KeyError
-    except KeyError:
+    if(len(dingwebhook)) > 1:
+        dingtalk(dingwebhook)
+    else:
         print("没有在Repository secrets配置钉钉机器人的‘webhook’,跳过发送钉钉推送")
-    try:
-        serverkey = os.environ["serverkey"]  # server酱的 webhook
-        print("key"+serverkey)
-        if(len(serverkey)) > 1:
-            server(serverkey)
-        else:
-            raise KeyError
-    except KeyError:
+    if(len(serverkey)) > 1:
+        server(serverkey)
+    else:
         print("没有在Repository secrets配置server酱的‘serverkey’,跳过发送server酱推送")
 
 
