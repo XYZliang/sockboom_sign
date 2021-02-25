@@ -15,6 +15,8 @@ header = {
 }
 email = os.environ["email"]
 passwd = os.environ["passwd"]
+webhook = ""
+server = ""
 try:
     dingwebhook = os.environ["webhook"]  # 钉钉机器人的 webhook
 except KeyError:
