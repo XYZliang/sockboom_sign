@@ -130,12 +130,18 @@ def main():
     checkin(headers)
     try:
         dingwebhook = os.environ["webhook"]  # 钉钉机器人的 webhook
-        dingtalk(dingwebhook)
+        if(len(dingwebhook)) > 1:
+            dingtalk(dingwebhook)
+        else:
+            raise KeyError
     except KeyError:
         print("没有在Repository secrets配置钉钉机器人的‘webhook’,跳过发送钉钉推送")
     try:
         serverkey = os.environ["serverkey"]  # server酱的 webhook
-        server(serverkey)
+        if(len(serverkey)) > 1:
+            server(serverkey)
+        else:
+            raise KeyError
     except KeyError:
         print("没有在Repository secrets配置server酱的‘serverkey’,跳过发送server酱推送")
 
