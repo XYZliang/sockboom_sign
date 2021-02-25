@@ -138,6 +138,7 @@ def main():
         print("没有在Repository secrets配置钉钉机器人的‘webhook’,跳过发送钉钉推送")
     try:
         serverkey = os.environ["serverkey"]  # server酱的 webhook
+        print("key"+serverkey)
         if(len(serverkey)) > 1:
             server(serverkey)
         else:
