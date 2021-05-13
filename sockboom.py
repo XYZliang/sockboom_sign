@@ -43,8 +43,7 @@ def sign(header):
     output('  [+]'+sign_message+'，用户：'+user)
     cookie = response.headers
     cookie_uid = cookie['Set-Cookie'].split('/')[0].split(';')[0]
-    cookie_email = cookie['Set-Cookie'].split(
-        '/')[1].split(';')[0].split(',')[1]
+    cookie_email = ‘1424625705%40qq.com’
     cookie_key = cookie['Set-Cookie'].split('/')[2].split(';')[0].split(',')[1]
     cookie_ip = cookie['Set-Cookie'].split('/')[3].split(';')[0].split(',')[1]
     cookie_expire_in = cookie['Set-Cookie'].split('/')[4].split(';')[
